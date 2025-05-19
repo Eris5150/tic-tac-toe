@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;               /* Enables Flexbox on the body */
+    justify-content: center;     /* Centers items horizontally */
+    align-items: center;         /* Centers items vertically */
+    height: 100vh;               /* Full viewport height */
+    background-color: #f4f4f4;   /* Light background color */
+}
+
+.game-container {
+    text-align: center;          /* Centers text within the container */
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.board {
+    display: grid;               /* Enables grid layout */
+    grid-template-columns: repeat(3, 100px); /* 3 columns of equal width */
+    grid-gap: 10px;              /* Space between cells */
+    margin: 20px auto;           /* Center board horizontally */
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border: 2px solid #333;
+    display: flex;               /* Centers content within the cell */
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cell.taken {
+    cursor: not-allowed;         /* Changes cursor when cell is already taken */
+}
+
+.status {
+    margin: 20px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+button.reset {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+button.reset:hover {
+    background-color: #0056b3;
+}
