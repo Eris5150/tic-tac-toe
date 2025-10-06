@@ -1,22 +1,41 @@
+/* ============================================================
+   Tic-Tac-Toe UI Stylesheet (Presentation Layer Only)
+   Author: Erick Rodriguez
+   Notes:
+     - Uses modern layout primitives (Flexbox + CSS Grid).
+     - Keeps visual design minimal and accessible (contrast, focus cues).
+     - Separation of concerns: purely presentational; no behavior here.
+   ============================================================ */
+
+/* -------- Global Page Layout & Base Typography -------- */
+/* Establish a full-viewport centered canvas for the game.
+   Flexbox ensures reliable vertical + horizontal centering across viewports. */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif;  /* System-safe, readable fallback stack */
     margin: 0;
     padding: 0;
     display: flex;               /* Enables Flexbox on the body */
     justify-content: center;     /* Centers items horizontally */
     align-items: center;         /* Centers items vertically */
     height: 100vh;               /* Full viewport height */
-    background-color: #f4f4f4;   /* Light background color */
+    background-color: #f4f4f4;   /* Light background color with gentle contrast */
 }
 
+/* -------- Container & Headings -------- */
+/* Central wrapper to scope the board and status text.
+   Text alignment improves readability for short status updates. */
 .game-container {
     text-align: center;          /* Centers text within the container */
 }
 
+/* Headline spacing to visually separate title from the board. */
 h1 {
     margin-bottom: 20px;
 }
 
+/* -------- Game Board Grid -------- */
+/* 3x3 grid using explicit track sizing for consistent hit targets.
+   Grid gap provides clear separation between cells for touch accuracy. */
 .board {
     display: grid;               /* Enables grid layout */
     grid-template-columns: repeat(3, 100px); /* 3 columns of equal width */
@@ -24,39 +43,49 @@ h1 {
     margin: 20px auto;           /* Center board horizontally */
 }
 
+/* -------- Board Cells -------- */
+/* Fixed-size, high-contrast tiles with centered content.
+   Cursor pointer communicates interactivity for discoverability. */
 .cell {
     width: 100px;
     height: 100px;
-    background: #fff;
-    border: 2px solid #333;
+    background: #fff;            /* White tiles for strong X/O legibility */
+    border: 2px solid #333;      /* Dark border for visual separation (WCAG-friendly contrast) */
     display: flex;               /* Centers content within the cell */
     justify-content: center;
     align-items: center;
-    font-size: 24px;
+    font-size: 24px;             /* Comfortable viewing size on desktop and mobile */
     font-weight: bold;
     cursor: pointer;
 }
 
+/* Non-interactive state once a move is made.
+   Prevents accidental clicks and improves UX feedback. */
 .cell.taken {
     cursor: not-allowed;         /* Changes cursor when cell is already taken */
 }
 
+/* -------- Status Messaging -------- */
+/* Prominent but unobtrusive status line for turn/win/draw feedback. */
 .status {
     margin: 20px 0;
     font-size: 18px;
     color: #333;
 }
 
+/* -------- Reset Button -------- */
+/* Primary action style with clear affordance and ample hit area. */
 button.reset {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #007bff;
+    background-color: #007bff;   /* Conventional primary blue */
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 5px;          /* Subtle rounding for modern look */
 }
 
+/* Hover affordance for mouse/trackpad users; preserves contrast. */
 button.reset:hover {
     background-color: #0056b3;
 }

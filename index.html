@@ -1,14 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic-Tac-Toe</title>
+    <!-- ============================================================
+         Tic-Tac-Toe | HTML Document (Structure Layer Only)
+         Author: Erick Rodriguez
+         Notes:
+           - Semantic, accessible structure for a simple web game.
+           - Externalized CSS/JS for separation of concerns.
+           - Mobile-friendly via responsive meta viewport.
+         ============================================================ -->
+
+    <meta charset="UTF-8"> <!-- UTF-8 for broad character support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures proper scaling on mobile devices -->
+    <title>Tic-Tac-Toe</title> <!-- Short, descriptive page title for SEO and accessibility -->
+
+    <!-- External stylesheet (presentation). Keeping styles separate supports maintainability and caching. -->
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
+    <!-- Root container centers content and scopes the game UI -->
     <div class="game-container">
+        <!-- Clear, single H1 for document hierarchy and screen readers -->
         <h1>Tic-Tac-Toe</h1>
+
+        <!--
+            Game board:
+              - 9 interactive cells mapped to indices 0..8 via data attributes.
+              - Visual layout handled by CSS Grid in styles/style.css.
+              - Using <div> for simplicity; ARIA roles could be added later if needed.
+        -->
         <div class="board">
             <div class="cell" data-index="0"></div>
             <div class="cell" data-index="1"></div>
@@ -20,9 +40,15 @@
             <div class="cell" data-index="7"></div>
             <div class="cell" data-index="8"></div>
         </div>
+
+        <!-- Dynamic status text updated by JS: indicates current turn, win, or draw -->
         <p class="status">Player X's turn</p>
+
+        <!-- Primary action: resets game state without page reload (bound in scripts/script.js) -->
         <button class="reset">Restart Game</button>
     </div>
+
+    <!-- Defer ensures the script executes after HTML parsing, avoiding blocking and ensuring DOM is ready -->
     <script src="scripts/script.js" defer></script>
 </body>
 </html>
